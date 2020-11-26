@@ -25,8 +25,28 @@ costoRenta(kilometros){
     }
     return costo;
 }
+puedeCircular(dia, terminacion){
+    let permiso;
+    if(terminacion==0 && dia==1){
+        permiso=true;
+    }
+    else if(terminacion==1&&dia==2){
+        permiso=true;
+    }
+    else if(terminacion==2&&(dia==3||dia==4)){
+        permiso=true;
+    }
+    else if(terminacion>2&&dia<=7){
+        permiso=true;
+    }
+    else{
+        permiso=false;
+    }
+    return permiso;
+}
 }
 
 let app = new App();
 console.log(app.convertir(2000));
 console.log(app.costoRenta(200));
+console.log(app.puedeCircular(1,0));
